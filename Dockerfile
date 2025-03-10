@@ -8,4 +8,4 @@ RUN wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz && \
   cd luarocks-3.11.1 && \
   ./configure --with-lua=/usr && \
   make && \
-  sudo make install
+  make install
