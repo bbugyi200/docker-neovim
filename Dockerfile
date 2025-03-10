@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y lua5.1 wget
 RUN wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz && \
   tar zxpf luarocks-3.11.1.tar.gz && \
   cd luarocks-3.11.1 && \
-  ./configure --with-lua=/usr/local && \
+  ./configure --with-lua=/usr && \
   make && \
   sudo make install
