@@ -46,11 +46,13 @@ function run() {
 
   local versioned_image_name="${IMAGE_NAME}":"${new_version}"
 
-  # Add files to git and a new git tag; then commit and push.
+  # Commit all changes.
   run_cmd "git add -v --all" &&
     echo "New Release: ${versioned_image_name}" >"${TEMP_CMD_FILE}" &&
-    run_cmd "git commit --verbose --file ${TEMP_CMD_FILE}" &&
-    run_cmd "git tag ${new_version}" &&
+    run_cmd "git commit --verbose --file ${TEMP_CMD_FILE}"
+
+  # Tag and push the new release.
+  run_cmd "git tag ${new_version}" &&
     run_cmd "git push && git push --tags" &&
     # Build, tag, and push Docker imagge.
     run_cmd "docker build -t ${IMAGE_NAME} ." &&
