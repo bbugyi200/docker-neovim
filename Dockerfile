@@ -4,16 +4,15 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install system packages and build dependencies
 RUN apk add --no-cache \
-    git \
+    bash \
     cmake \
-    make \
-    gcc \
     g++ \
-    libc-dev \
+    gcc \
     gettext-dev \
+    git \
+    libc-dev \
     lua5.1-dev \
-    python3 \
-    py3-pip \
+    make \
     wget;
 
 # Build and install neovim from source
