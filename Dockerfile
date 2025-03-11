@@ -4,9 +4,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install system packages.
 RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 wget;
+
 # Build and install neovim from source.
-
-
 RUN mkdir -p /build/neovim && \
     git clone https://github.com/neovim/neovim /build/neovim && \
     cd /build/neovim && \
