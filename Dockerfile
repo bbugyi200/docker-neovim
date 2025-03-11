@@ -22,5 +22,7 @@ RUN wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz && \
   make install;
 
 # Install luarocks packages and add ~/.luarocks/bin to PATH.
-RUN luarocks install busted && luarocks install nlua;
+RUN luarocks install busted && \
+  luarocks install nlua && \
+  luarocks install luacov;
 RUN printf 'export PATH=$PATH:$HOME/.luarocks/bin\n' >> /bashrc;
