@@ -11,7 +11,7 @@ RUN mkdir -p /build/neovim && \
     git clone https://github.com/neovim/neovim /build/neovim && \
     cd /build/neovim && \
     git checkout v0.$(git tag | cut -c4- | grep '[0-9]' | sort -n | tail -n 1) && \
-    make CMAKE_BUILD_TYPE=Release && \
+    make CMAKE_BUILD_TYPE=Release -j && \
     make install;
 
 # Build and install luarocks from source.
