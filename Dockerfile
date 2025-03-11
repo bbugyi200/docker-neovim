@@ -1,11 +1,22 @@
-FROM python:3.9-bullseye
+FROM alpine:3.18
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
-# Install system packages.
-RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 wget;
+# Install system packages and build dependencies
+RUN apk add --no-cache \
+    git \
+    cmake \
+    make \
+    gcc \
+    g++ \
+    libc-dev \
+    gettext-dev \
+    lua5.1-dev \
+    python3 \
+    py3-pip \
+    wget;
 
-# Build and install neovim from source.
+# Build and install neovim from source
 RUN mkdir -p /build/neovim && \
     git clone https://github.com/neovim/neovim /build/neovim && \
     cd /build/neovim && \
@@ -13,16 +24,16 @@ RUN mkdir -p /build/neovim && \
     make CMAKE_BUILD_TYPE=Release -j && \
     make install;
 
-# Build and install luarocks from source.
+# Build and install luarocks from source
 RUN wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz && \
-  tar zxpf luarocks-3.11.1.tar.gz && \
-  cd luarocks-3.11.1 && \
-  ./configure && \
-  make && \
-  make install;
+    tar zxpf luarocks-3.11.1.tar.gz && \
+    cd luarocks-3.11.1 && \
+    ./configure && \
+    make && \
+    make install;
 
-# Install luarocks packages and add ~/.luarocks/bin to PATH.
+# Install luarocks packages and add ~/.luarocks/bin to PATH
 RUN luarocks install busted && \
-  luarocks install nlua && \
-  luarocks install luacov;
-RUN printf 'export PATH=$PATH:$HOME/.luarocks/bin\n' >> /bashrc;
+    luarocks install nlua && \
+    luarocks install luacov;
+RUN printf 'export PATH=$PATH:$HOME/.luarocks/bin\n' >> /etc/profile;
