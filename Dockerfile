@@ -3,7 +3,7 @@ FROM python:3.9-bullseye
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install system packages.
-RUN apt-get update && apt-get install -y cmake liblua5.1 lua5.1 wget;
+RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 wget;
 # Build and install neovim from source.
 
 
