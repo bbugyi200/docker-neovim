@@ -23,7 +23,7 @@ RUN mkdir -p /build/lua-language-server && \
     cd /build/lua-language-server && \
     git checkout $LLS_VERSION && \
     ./make.sh && \
-    mv ./bin/lua-language-server /usr/local/bin/
+    mv ./bin/lua-language-server /usr/local/bin/;
 
 # Build and install luarocks from source.
 RUN wget https://luarocks.org/releases/luarocks-$LUAROCKS_VERSION.tar.gz && \
