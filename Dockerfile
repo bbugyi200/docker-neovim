@@ -7,7 +7,7 @@ ARG LUAROCKS_VERSION=3.11.1
 ARG NEOVIM_VERSION=v0.10.4
 
 # Install system packages.
-RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 ninja wget;
+RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 wget;
 
 # Build and install neovim from source.
 RUN mkdir -p /build/neovim && \
