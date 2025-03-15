@@ -36,5 +36,6 @@ RUN wget https://luarocks.org/releases/luarocks-$LUAROCKS_VERSION.tar.gz && \
 RUN luarocks install busted && \
   luarocks install nlua && \
   luarocks install llscheck && \
+  luarocks install luacheck && \
   luarocks install luacov;
 RUN printf 'export PATH=$PATH:$HOME/.luarocks/bin\n' >> /bashrc;
