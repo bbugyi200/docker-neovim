@@ -23,6 +23,7 @@ RUN mkdir -p /build/lua-language-server && \
     cd /build/lua-language-server && \
     git checkout $LLS_VERSION && \
     ./make.sh && \
+    chmod -R a+rw /build/lua-language-server && \
     printf 'export PATH=$PATH:/build/lua-language-server/bin\n' >> /bashrc;
 
 # Build and install luarocks from source.
