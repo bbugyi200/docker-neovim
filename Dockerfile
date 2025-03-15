@@ -7,7 +7,7 @@ ARG LUAROCKS_VERSION=3.11.1
 ARG NEOVIM_VERSION=v0.10.4
 
 # Install system packages.
-RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 wget;
+RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 ninja-build wget;
 
 # Build and install neovim from source.
 RUN mkdir -p /build/neovim && \
@@ -22,7 +22,7 @@ RUN mkdir -p /build/lua-language-server && \
     git clone https://github.com/LuaLS/lua-language-server /build/lua-language-server && \
     cd /build/lua-language-server && \
     git checkout $LLS_VERSION && \
-    ./make.sh
+    ./make.sh;
 
 # Build and install luarocks from source.
 RUN wget https://luarocks.org/releases/luarocks-$LUAROCKS_VERSION.tar.gz && \
