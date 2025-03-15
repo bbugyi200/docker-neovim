@@ -24,7 +24,7 @@ RUN mkdir -p /build/lua-language-server && \
     git checkout $LLS_VERSION && \
     ./make.sh && \
     chmod -R a+rw /build/lua-language-server && \
-    printf 'export PATH=$PATH:/build/lua-language-server/bin\n' >> /bashrc;
+    printf 'export PATH=$PATH:/build/lua-language-server/bin\n' >> /etc/profile;
 
 # Build and install luarocks from source.
 RUN wget https://luarocks.org/releases/luarocks-$LUAROCKS_VERSION.tar.gz && \
@@ -40,4 +40,3 @@ RUN luarocks install busted && \
   luarocks install llscheck && \
   luarocks install luacheck && \
   luarocks install luacov;
-RUN printf 'export PATH=$PATH:$HOME/.luarocks/bin\n' >> /bashrc;
