@@ -2,6 +2,10 @@ FROM python:3.9-bullseye
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# VERSION FRESHNESS: 2025-03-16
+# 
+# Update the above date after updating the version numbers below to the latest
+# stable release of each tool.
 ARG LLS_VERSION=3.13.9
 ARG LUAROCKS_VERSION=3.11.1
 ARG NEOVIM_VERSION=v0.10.4
