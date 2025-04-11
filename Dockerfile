@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # stable release of each tool.
 ARG LLS_VERSION=3.13.9
 ARG LUAROCKS_VERSION=3.11.1
-ARG NEOVIM_VERSION=v0.10.4
+ARG NEOVIM_VERSION=v0.11.0
 
 # Install system packages.
 RUN apt-get update && apt-get install -y cmake gettext liblua5.1 lua5.1 ninja-build wget;
