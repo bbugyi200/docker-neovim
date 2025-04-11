@@ -2,11 +2,15 @@ FROM python:3.9-bullseye
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# VERSION FRESHNESS: 2025-03-16
+# VERSION FRESHNESS: 2025-04-11
 # 
 # Update the above date after updating the version numbers below to the latest
-# stable release of each tool.
-ARG LLS_VERSION=3.13.9
+# stable release of each tool. The latest stable releases can be found at:
+#
+# - LLS:
+# - LUAROCKS: https://luarocks.org/releases
+# - NEOVIM: https://github.com/neovim/neovim/tags
+ARG LLS_VERSION=3.14.0
 ARG LUAROCKS_VERSION=3.11.1
 ARG NEOVIM_VERSION=v0.11.0
 
