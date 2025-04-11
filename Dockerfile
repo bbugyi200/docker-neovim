@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Update the above date after updating the version numbers below to the latest
 # stable release of each tool. The latest stable releases can be found at:
 #
-# - LLS:
+# - LLS: https://github.com/LuaLS/lua-language-server/releases
 # - LUAROCKS: https://luarocks.org/releases
 # - NEOVIM: https://github.com/neovim/neovim/tags
 ARG LLS_VERSION=3.14.0
